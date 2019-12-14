@@ -25,13 +25,13 @@
   </head>
 
   <body>
-    <h1>Number guessing game</h1>
+    <h1>Raad het nummer spelletje</h1>
 
-    <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer. We'll tell you if your guess was too high or too low.</p>
+    <p>De computer heeft een getal tussen 1 en 100 in zijn gedachten. Kan jij het getal raden in 10 beurten of minder?</p>
 
     <div class="form">
-      <label for="guessField">Enter a guess: </label><input type="text" id="guessField" class="guessField">
-      <input type="submit" value="Submit guess" class="guessSubmit">
+      <label for="guessField">Vul een getal in: </label><input type="text" id="guessField" class="guessField">
+      <input type="submit" value="GOK" class="guessSubmit">
     </div>
 
     <div class="resultParas">
@@ -53,13 +53,13 @@
       function checkGuess() {
         let userGuess = Number(guessField.value);
         if (guessCount === 1) {
-          guesses.textContent = 'Previous guesses: ';
+          guesses.textContent = 'Vorige gokjes: ';
         }
 
         guesses.textContent += userGuess + ' ';
 
         if (userGuess === randomNumber) {
-          lastResult.textContent = 'Congratulations! You got it right!';
+          lastResult.textContent = 'Gewonnen!';
           lastResult.style.backgroundColor = 'green';
           lowOrHi.textContent = '';
           setGameOver();
@@ -68,12 +68,12 @@
           lowOrHi.textContent = '';
           setGameOver();
         } else {
-          lastResult.textContent = 'Wrong!';
+          lastResult.textContent = 'Fout!';
           lastResult.style.backgroundColor = 'red';
           if(userGuess < randomNumber) {
-            lowOrHi.textContent = 'Last guess was too low!' ;
+            lowOrHi.textContent = 'Vorig gokje was te laag!' ;
           } else if(userGuess > randomNumber) {
-            lowOrHi.textContent = 'Last guess was too high!';
+            lowOrHi.textContent = 'Vorig gokje was te hoog!';
           }
         }
 
